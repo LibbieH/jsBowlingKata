@@ -1,3 +1,6 @@
-export function add(a, b){
-    return a + b;
-}
+class BowlingGame {
+    constructor(){
+        this.roll = [];
+        this.score = 0;
+    }
+};
