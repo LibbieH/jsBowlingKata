@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --opts tests/mocha.opts --compilers js:babel-core/register",
-    "test:watch": "mocha --opts tests/mocha.opts --watch --compilers js:babel-core/register"
+    "test": "mocha --opts tests/mocha.opts",
+    "test:watch": "mocha --opts tests/mocha.opts --watch"
   },
   "author": "",
   "license": "ISC",
@@ -14,7 +14,8 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-register": "^6.26.0",
     "chai": "^4.0.1",
-    "mocha": "^3.4.2"
+    "mocha": "^3.4.2",
+    "mocha-eslint": "^4.1.0"
   },
   "repository": {
     "type": "git",
