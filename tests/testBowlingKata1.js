@@ -2,37 +2,40 @@ import { it, describe } from "mocha";
 import { expect } from "chai";
 import {BowlingGame} from "../js/bowlingKata1";
 
-function rollMany(n, pins){
+function rollMany(game, n, pins){
     for (let r=0; r<n; r++){
-        this.game.roll(pins);
+        game.roll(pins);
     }
 }
 
 describe("Bowling Game", () => {
     it("score game of all gutter balls", () => {
         let game = new BowlingGame();
-        for(let r=0; r <20; r++){
-            game.roll(0);
-        }
+        rollMany(game, 20, 0);
         expect(game.score()).to.equal(0);
     });
 
     it("score game of all 1s", () => {
         let game = new BowlingGame();
-        for(let r=0; r<20; r++){
-            game.roll(1);
-        }
+        rollMany(game, 20, 1);
         expect(game.score()).to.equal(20);
     });
 
     it("scores a game with one spare", () => {
         let game = new BowlingGame();
-        for(let r=0; r<20; r++){
-            game.roll(5);
-            game.roll(5);
-            game.roll(3);
-            rollMany(this, 17, 0);
-        }
-        expect(game.score()).to.equal(13);
+        game.roll(5);
+        game.roll(5);
+        game.roll(3);
+        rollMany(game, 17, 0);
+        expect(game.score()).to.equal(16);
+    });
+
+    it("scores a game with one strike", () => {
+        let game = new BowlingGame();
+        game.roll(10);
+        game.roll(5);
+        game.roll(3);
+        rollMany(game, 17, 0);
+        expect(game.score()).to.equal(26);
     });
 });
