@@ -38,4 +38,10 @@ describe("Bowling Game", () => {
         rollMany(game, 17, 0);
         expect(game.score()).to.equal(26);
     });
+
+    it("scores a perfect game", () => {
+        let game = new BowlingGame();
+        rollMany(game, 12, 10);
+        expect(game.score()).to.equal(300);
+    });
 });
