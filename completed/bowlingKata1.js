@@ -1,7 +1,6 @@
 class Frame {
     constructor() {
         this.rolls = [];
-        
     }
 
     isStrike() {
@@ -46,7 +45,6 @@ class BowlingGame {
             let frameScore = this.scoreFrame(frameIndex);
 
             score += frameScore;
-
         }
     
         return score;
@@ -68,4 +66,5 @@ class BowlingGame {
         return frameScore;
     }
 }
+export{Frame};
 export{BowlingGame};
