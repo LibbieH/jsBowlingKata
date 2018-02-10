@@ -1,7 +1,6 @@
 import{it, describe} from "mocha";
 import{expect} from "chai";
 import{BowlingGame} from "../js/bowlingKata4";
-import { lchmod } from "fs";
 
 function rollMany(game, nRolls, pins){
     for(let r = 0; r < nRolls; r++){

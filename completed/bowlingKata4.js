@@ -17,7 +17,6 @@ class Frame{
 class BowlingGame{
     constructor(){
         this.frames = [new Frame()];
-
     }
 
     roll(pins){
