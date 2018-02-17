@@ -1,16 +1,16 @@
 class Frame{
     constructor(){
-        this.rolls =[];
-    }
-
-    isSpare(){
-        return this.rolls.length === 2 && (this.rolls[0] + this.rolls[1] === 10);
+        this.rolls = [];
     }
 
     isStrike(){
         return this.rolls.length === 1 && this.rolls[0] === 10;
     }
 
+    isSpare(){
+        return this.rolls.length === 2 && (this.rolls[0] + this.rolls[1] === 10);
+    }
+    
     isComplete(){
         if(this.rolls.length === 2){
             return true;
@@ -38,8 +38,8 @@ class BowlingGame{
 
     frameScore(frameIndex){
         const frame = this.frames[frameIndex];
-        let frameScore = frame.rolls.reduce((agg, x) => agg + x, 0);
-        
+        let frameScore =  frame.rolls.reduce((agg, x) => agg + x, 0);
+
         if(frame.isSpare()){
             const nextFrame = this.frames[frameIndex + 1];
             frameScore += nextFrame.rolls[0];
@@ -51,19 +51,16 @@ class BowlingGame{
             const nextTwoRolls = nextRolls.slice(0,2);
             frameScore += nextTwoRolls.reduce((agg, x) => agg + x, 0);
         }
-
         return frameScore;
     }
 
     score(){
         let score = 0;
-        let frameIndex = 0;
-        for(frameIndex = 0; frameIndex < 10; frameIndex++){
+        for(let frameIndex = 0; frameIndex < 10; frameIndex++){
             let frameScore = this.frameScore(frameIndex);
             score += frameScore;
         }
         return score;
     }
 }
-
 export{BowlingGame};
